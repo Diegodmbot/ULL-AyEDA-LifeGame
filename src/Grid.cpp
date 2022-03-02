@@ -20,7 +20,10 @@ int Grid::GetRowSize() { return row_size; }
 
 int Grid::GetColumnSize() { return column_size; }
 
-void Grid::NextGeneration(void) {}
+void Grid::NextGeneration(void) {
+  // Actualizar el estado siguiente
+  // Cambiar el estado siguiente al estado actual
+}
 
 void Grid::Write(void) {
   system("clear");
@@ -28,9 +31,9 @@ void Grid::Write(void) {
   std::cout << "|";
   for (int i = 0; i < column_size; i++) std::cout << "===";
   std::cout << "|" << std::endl;
-  for (int i = 0; i < row_size; i++) {
+  for (int i = 1; i <= row_size; i++) {
     std::cout << "|";
-    for (int j = 0; j < column_size; j++) {
+    for (int j = 1; j <= column_size; j++) {
       std::cout << ' ' << matrix_cell[i][j] << ' ';
     }
     std::cout << "|" << std::endl;
@@ -61,8 +64,9 @@ void Grid::Read(char* arg) {
     ss_world >> rows >> cols;
     row_size = FormatSize(rows);
     column_size = FormatSize(cols);
-    matrix_cell.resize(column_size);
-    for (int i = 0; i < column_size; i++) matrix_cell[i].resize(column_size);
+    matrix_cell.resize(row_size + 2);
+    for (int i = 0; i < column_size + 2; i++)
+      matrix_cell[i].resize(column_size + 2);
     // Numero de celulas
     int number_of_cells = std::stoi(file_lines[index++]);
     // Coordenadas de las celulas

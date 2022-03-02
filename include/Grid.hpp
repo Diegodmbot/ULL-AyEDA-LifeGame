@@ -2,7 +2,7 @@
  * Universidad de La Laguna
  * Escuela Superior de Ingeniería y Tecnología
  * Algoritmo y Estructuras de Datos Avanzados
- * @file: P01DiegoDiazMoron/Cell
+ * @file: P01DiegoDiazMoron/Grid
  * @author: Diego Diaz Moron
  * @mail: alu0101337975@ull.edu.es
  * @date: 22/02/22

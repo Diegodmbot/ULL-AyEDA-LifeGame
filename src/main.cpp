@@ -10,7 +10,7 @@
  * @brief: El Juego de la Vida.
  */
 
-//#include <unistd.h>  // sleep
+#include <unistd.h>  // sleep
 
 #include <cstring>  // strcmp
 
@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
     while (true) {
       world.Write();
       world.NextGeneration();
-      // sleep(1);
+      sleep(1);
     }
     return 0;
   }

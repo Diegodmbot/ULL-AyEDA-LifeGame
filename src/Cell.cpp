@@ -17,7 +17,6 @@
 Cell::Cell() {
   actual_state = kDead;
   next_state = kDead;
-  // Llamara al metodo neighbors
   neighbords_alive = 0;
 }
 
@@ -45,7 +44,7 @@ std::ostream& operator<<(std::ostream& os, const Cell& cell) {
   char output;
   switch (cell.actual_state) {
     case 0:
-      output = ' ';
+      output = '-';
       break;
     case 1:
       output = 'X';

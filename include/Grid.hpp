@@ -28,9 +28,15 @@ class Grid {
  public:
   Grid(char* arg);
   ~Grid(void);
+  // Getters - Setters
   int GetRowSize(void);
   int GetColumnSize(void);
   const Cell& GetCell(int i, int j) const;
+  // Metodos
+  /**
+   * @brief Se pasa al siguiente turno
+   *
+   */
   void NextGeneration(void);
   void Write(void);
 

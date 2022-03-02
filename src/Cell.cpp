@@ -12,9 +12,12 @@
 
 #include "Cell.hpp"
 
+#include "Grid.hpp"
+
 Cell::Cell() {
   actual_state = kDead;
   next_state = kDead;
+  // Llamara al metodo neighbors
   neighbords_alive = 0;
 }
 
@@ -28,7 +31,15 @@ void Cell::SetActualState(CellStates state) { actual_state = state; }
 
 void Cell::SetNextState(CellStates state) { next_state = state; }
 
-void Cell::updateState(void) {}
+int Cell::neighbors(const Grid&) {}
+
+void Cell::updateState(void) {
+  if (actual_state == kAlive) {
+    next_state = kDead;
+  } else if (actual_state == kDead) {
+    next_state = kAlive;
+  }
+}
 
 std::ostream& operator<<(std::ostream& os, const Cell& cell) {
   char output;

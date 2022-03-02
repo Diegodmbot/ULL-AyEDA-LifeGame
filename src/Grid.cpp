@@ -22,7 +22,20 @@ int Grid::GetColumnSize() { return column_size; }
 
 void Grid::NextGeneration(void) {
   // Actualizar el estado siguiente
-  // Cambiar el estado siguiente al estado actual
+  for (int i = 1; i <= row_size; i++) {
+    for (int j = 1; j <= column_size; j++) {
+      // Si la celula esta muerta y tiene 3 vecinos vivos pasa a estar viva
+      if (true) std::cout << "Hola" << std::endl;
+      // Si la celula esta viva y tiene 3 o 2 vecinos vivos sigue viva
+      // En cualquier otro caso la celula esta muerta
+    }
+  }
+  // Igualar el estado actual al estado siguiente
+  for (int i = 1; i <= row_size; i++) {
+    for (int j = 1; j <= column_size; j++) {
+      matrix_cell[i][j].SetActualState(matrix_cell[i][j].GetNextState());
+    }
+  }
 }
 
 void Grid::Write(void) {

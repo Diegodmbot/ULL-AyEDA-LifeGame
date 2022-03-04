@@ -14,7 +14,6 @@
 #define CELL
 
 #include <iostream>
-#include <vector>
 
 typedef enum { kDead = 0, kAlive = 1 } CellStates;
 const int kNunmberOfNeighbors = 8;
@@ -28,20 +27,20 @@ class Cell {
   // Getters - Setters
   CellStates GetActualState(void);
   CellStates GetNextState(void);
-  void SetActualState(CellStates state);
-  void SetNextState(CellStates state);
+  void SetActualState(CellStates);
+  void SetNextState(CellStates);
   // Metodos
   /**
    * @brief Calcula el numero de vecinos vivos de una celula
    *
    * @return int
    */
-  int neighbors(const Grid&);
+  int Neighbors(const Grid&);
   /**
    * @brief Cambia el atributo next_state de una celula
    *
    */
-  void updateState(void);
+  void UpdateState(void);
 
  private:
   friend std::ostream& operator<<(std::ostream& os, const Cell& cell);

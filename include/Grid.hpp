@@ -16,22 +16,25 @@
 #include <fstream>  // files
 #include <sstream>  // std::stringstream
 #include <string>
+#include <vector>
 
 #include "Cell.hpp"
+#include "matrix_t.hpp"
+#include "vector_t.hpp"
 
 #define BETWEEN(value, min, max) (value >= min && value <= max)
 
-typedef std::vector<std::vector<Cell>> matrix;
+// typedef std::vector<std::vector<Cell>> matrix;
 const int kDefaultSize = 50;
 
 class Grid {
  public:
-  Grid(char* arg);
+  Grid(char*);
   ~Grid(void);
   // Getters - Setters
   int GetRowSize(void);
   int GetColumnSize(void);
-  const Cell& GetCell(int i, int j) const;
+  const Cell& GetCell(int, int) const;
   // Metodos
   /**
    * @brief Se pasa al siguiente turno
@@ -46,7 +49,7 @@ class Grid {
    *
    * @param argv Nombre del fichero.
    */
-  void Read(char* argv);
+  void Read(char*);
   /**
    * @brief Si el valor de la fila o columna es 1 o menor, tomara el tamano por
    * defecto
@@ -54,10 +57,10 @@ class Grid {
    * @param i numero de filas o columnas
    * @return tamano final de la matriz
    */
-  int FormatSize(const int input);
+  int FormatSize(const int);
 
   int row_size;
   int column_size;
-  matrix matrix_cell;
+  matrix_t<Cell> matrix_cell;
 };
 #endif  // GRID

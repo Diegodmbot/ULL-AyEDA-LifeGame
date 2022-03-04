@@ -30,9 +30,9 @@ void Cell::SetActualState(CellStates state) { actual_state = state; }
 
 void Cell::SetNextState(CellStates state) { next_state = state; }
 
-int Cell::neighbors(const Grid&) {}
+int Cell::Neighbors(const Grid& map) {}
 
-void Cell::updateState(void) {
+void Cell::UpdateState(void) {
   if (actual_state == kAlive) {
     next_state = kDead;
   } else if (actual_state == kDead) {

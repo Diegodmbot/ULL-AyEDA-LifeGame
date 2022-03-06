@@ -30,6 +30,7 @@ class Cell {
   int GetNeighboursAlive(void) const;
   void SetActualState(CellStates);
   void SetNextState(CellStates);
+  void SetNeighbordsAlive(int);
   void SetPositionRow(int);
   void SetPositionCol(int);
   // Metodos
@@ -52,7 +53,6 @@ class Cell {
   int neighbords_alive;
   int pos_row;
   int pos_col;
-  Cell* neighbors_list[kNunmberOfNeighbors];
 };
 
 #endif  // CELL

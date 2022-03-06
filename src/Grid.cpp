@@ -34,6 +34,8 @@ void Grid::NextGeneration(void) {
   Cell cell_aux;
   for (int i = 1; i <= row_size; i++) {
     for (int j = 1; j <= column_size; j++) {
+      // matrix_cell(i, j).SetNeighbordsAlive(matrix_cell(i,
+      // j).Neighbors(*this));
       matrix_cell(i, j).UpdateState();
     }
     // Igualar el estado actual al estado siguiente

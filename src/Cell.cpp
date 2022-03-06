@@ -17,7 +17,7 @@
 Cell::Cell() {
   actual_state = kDead;
   next_state = kDead;
-  neighbords_alive = 3;
+  neighbords_alive = 0;
 }
 
 Cell::~Cell() {}
@@ -28,10 +28,14 @@ CellStates Cell::GetNextState(void) const { return next_state; }
 
 int Cell::GetNeighboursAlive(void) const { return neighbords_alive; }
 
+void Cell::SetNeighbordsAlive(int neighbords) { neighbords_alive = neighbords; }
+
 void Cell::SetActualState(CellStates state) { actual_state = state; }
 
 void Cell::SetNextState(CellStates state) { next_state = state; }
+
 void Cell::SetPositionRow(int row) { pos_row = row; }
+
 void Cell::SetPositionCol(int col) { pos_col = col; }
 
 int Cell::Neighbors(const Grid& map) {

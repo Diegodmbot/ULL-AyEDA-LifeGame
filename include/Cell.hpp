@@ -30,13 +30,15 @@ class Cell {
   int GetNeighboursAlive(void);
   void SetActualState(CellStates);
   void SetNextState(CellStates);
+  void SetPositionRow(int);
+  void SetPositionCol(int);
   // Metodos
   /**
    * @brief Calcula el numero de vecinos vivos de una celula
    *
    * @return int
    */
-  int Neighbors(const Grid&);
+  int Neighbors(Grid&);
   /**
    * @brief Cambia el atributo next_state de una celula
    *
@@ -48,6 +50,9 @@ class Cell {
   CellStates actual_state;
   CellStates next_state;
   int neighbords_alive;
+  int pos_row;
+  int pos_col;
+  Cell* neighbors_list[kNunmberOfNeighbors];
 };
 
 #endif  // CELL

@@ -57,7 +57,7 @@ class Grid {
    * @return tamano final de la matriz
    */
   int FormatSize(const int);
-
+  void SetPositionCell(void);
   int row_size;
   int column_size;
   matrix_t matrix_cell;

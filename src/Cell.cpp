@@ -31,8 +31,15 @@ int Cell::GetNeighboursAlive(void) { return neighbords_alive; }
 void Cell::SetActualState(CellStates state) { actual_state = state; }
 
 void Cell::SetNextState(CellStates state) { next_state = state; }
+void Cell::SetPositionRow(int row) { pos_row = row; }
+void Cell::SetPositionCol(int col) { pos_col = col; }
 
-int Cell::Neighbors(const Grid& map) {}
+int Cell::Neighbors(Grid& map) {
+  for (int i = 1; i <= map.GetRowSize(); i++) {
+    for (int j = 1; j <= map.GetColumnSize(); j++) {
+    }
+  }
+}
 
 void Cell::UpdateState(void) {
   if (actual_state == kAlive) {

@@ -14,7 +14,10 @@
 
 #include "matrix_t.hpp"
 
-Grid::Grid(char* arg) { Read(arg); }
+Grid::Grid(char* arg) {
+  Read(arg);
+  SetPositionCell();
+}
 
 Grid::~Grid() {}
 
@@ -109,4 +112,13 @@ void Grid::Read(char* arg) {
 
 int Grid::FormatSize(const int input) {
   return input <= 1 ? kDefaultSize : input;
+}
+
+void Grid::SetPositionCell(void) {
+  for (int i = 1; i <= row_size; i++) {
+    for (int j = 1; j <= column_size; j++) {
+      matrix_cell(i, j).SetPositionCol(i);
+      matrix_cell(i, j).SetPositionRow(j);
+    }
+  }
 }

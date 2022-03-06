@@ -60,7 +60,7 @@ void Cell::UpdateState(void) {
   // En cualquier otro caso la celula esta muerta
   else
     next_state = kDead;
-  std::cout << neighbords_alive << std::endl;
+  // std::cout << neighbords_alive << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Cell& cell) {
@@ -71,6 +71,9 @@ std::ostream& operator<<(std::ostream& os, const Cell& cell) {
       break;
     case 1:
       output = 'X';
+      break;
+    case 3:
+      output = 'A';
       break;
     default:
       break;

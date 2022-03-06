@@ -26,6 +26,8 @@ CellStates Cell::GetActualState(void) { return actual_state; }
 
 CellStates Cell::GetNextState(void) { return next_state; }
 
+int Cell::GetNeighboursAlive(void) { return neighbords_alive; }
+
 void Cell::SetActualState(CellStates state) { actual_state = state; }
 
 void Cell::SetNextState(CellStates state) { next_state = state; }

@@ -27,6 +27,7 @@ class Cell {
   // Getters - Setters
   CellStates GetActualState(void);
   CellStates GetNextState(void);
+  int GetNeighboursAlive(void);
   void SetActualState(CellStates);
   void SetNextState(CellStates);
   // Metodos

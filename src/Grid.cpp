@@ -24,11 +24,25 @@ int Grid::GetColumnSize() { return column_size; }
 
 void Grid::NextGeneration(void) {
   // Actualizar el estado siguiente
+  Cell cell_aux;
   for (int i = 1; i <= row_size; i++) {
     for (int j = 1; j <= column_size; j++) {
+      cell_aux = matrix_cell(i, j);
       // Si la celula esta muerta y tiene 3 vecinos vivos pasa a estar viva
+      if (cell_aux.GetActualState() == kDead &&
+          cell_aux.GetNeighboursAlive() == 3)
+        cell_aux.SetNextState(kAlive);
       // Si la celula esta viva y tiene 3 o 2 vecinos vivos sigue viva
+      else if (cell_aux.GetActualState() == kAlive &&
+               (cell_aux.GetNeighboursAlive() == 3 ||
+                cell_aux.GetNeighboursAlive() == 2))
+        cell_aux.SetNextState(kAlive);
       // En cualquier otro caso la celula esta muerta
+      else
+        cell_aux.SetNextState(kDead);
+      std::cout << cell_aux.GetNextState();
+      matrix_cell(i, j) = cell_aux;
+      std::cout << matrix_cell(i, j).GetNextState() << std::endl;
     }
   }
   // Igualar el estado actual al estado siguiente

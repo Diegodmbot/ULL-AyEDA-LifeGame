@@ -20,7 +20,6 @@
 
 #include "Cell.hpp"
 #include "matrix_t.hpp"
-#include "vector_t.hpp"
 
 #define BETWEEN(value, min, max) (value >= min && value <= max)
 
@@ -61,6 +60,6 @@ class Grid {
 
   int row_size;
   int column_size;
-  matrix_t<Cell> matrix_cell;
+  matrix_t matrix_cell;
 };
 #endif  // GRID

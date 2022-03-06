@@ -16,21 +16,22 @@
 #include <cassert>
 #include <iostream>
 
-template <class T>
+#include "Cell.hpp"
+
 class vector_t {
  public:
   vector_t(const int = 0);
   ~vector_t();
   // Getters - Setters
-  T GetVal(const int) const;
+  Cell GetVal(const int) const;
   int GetSize(void) const;
-  void SetVal(const int, const T);
-  T& operator[](const int);
+  void SetVal(const int, const Cell);
+  Cell& operator[](const int);
   // Metodos
   void Resize(const int);
 
  private:
-  T* v_;
+  Cell* v_;
   int sz_;
   void Build(void);
   void Destroy(void);

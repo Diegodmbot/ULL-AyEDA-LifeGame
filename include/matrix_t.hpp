@@ -15,7 +15,6 @@
 
 #include "vector_t.hpp"
 
-template <class T>
 class matrix_t {
  public:
   matrix_t(const int = 0, const int = 0);
@@ -24,12 +23,12 @@ class matrix_t {
   int GetRows(void) const;
   int GetCols(void) const;
   // Metodos
-  T& operator()(const int, const int);
+  Cell& operator()(const int, const int);
   void Resize(const int, const int);
 
  private:
   int rows_, cols_;
-  vector_t<T> v_;
+  vector_t v_;
 
   int pos(const int, const int) const;
 };

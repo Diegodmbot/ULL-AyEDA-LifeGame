@@ -12,6 +12,8 @@
 
 #include "Grid.hpp"
 
+#include "matrix_t.hpp"
+
 Grid::Grid(char* arg) { Read(arg); }
 
 Grid::~Grid() {}
@@ -25,7 +27,6 @@ void Grid::NextGeneration(void) {
   for (int i = 1; i <= row_size; i++) {
     for (int j = 1; j <= column_size; j++) {
       // Si la celula esta muerta y tiene 3 vecinos vivos pasa a estar viva
-      if (true) std::cout << "Hola" << std::endl;
       // Si la celula esta viva y tiene 3 o 2 vecinos vivos sigue viva
       // En cualquier otro caso la celula esta muerta
     }

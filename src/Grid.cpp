@@ -40,9 +40,7 @@ void Grid::NextGeneration(void) {
       // En cualquier otro caso la celula esta muerta
       else
         cell_aux.SetNextState(kDead);
-      std::cout << cell_aux.GetNextState();
       matrix_cell(i, j) = cell_aux;
-      std::cout << matrix_cell(i, j).GetNextState() << std::endl;
     }
   }
   // Igualar el estado actual al estado siguiente

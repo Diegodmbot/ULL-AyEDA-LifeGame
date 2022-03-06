@@ -17,7 +17,7 @@
 Cell::Cell() {
   actual_state = kDead;
   next_state = kDead;
-  neighbords_alive = 0;
+  neighbords_alive = 3;
 }
 
 Cell::~Cell() {}

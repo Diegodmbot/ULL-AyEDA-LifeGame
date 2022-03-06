@@ -34,32 +34,19 @@ void Grid::NextGeneration(void) {
   Cell cell_aux;
   for (int i = 1; i <= row_size; i++) {
     for (int j = 1; j <= column_size; j++) {
-      cell_aux = matrix_cell(i, j);
-      // Si la celula esta muerta y tiene 3 vecinos vivos pasa a estar viva
-      if (cell_aux.GetActualState() == kDead &&
-          cell_aux.GetNeighboursAlive() == 3)
-        cell_aux.SetNextState(kAlive);
-      // Si la celula esta viva y tiene 3 o 2 vecinos vivos sigue viva
-      else if (cell_aux.GetActualState() == kAlive &&
-               (cell_aux.GetNeighboursAlive() == 3 ||
-                cell_aux.GetNeighboursAlive() == 2))
-        cell_aux.SetNextState(kAlive);
-      // En cualquier otro caso la celula esta muerta
-      else
-        cell_aux.SetNextState(kDead);
-      matrix_cell(i, j) = cell_aux;
+      matrix_cell(i, j).UpdateState();
     }
-  }
-  // Igualar el estado actual al estado siguiente
-  for (int i = 1; i <= row_size; i++) {
-    for (int j = 1; j <= column_size; j++) {
-      matrix_cell(i, j).SetActualState(matrix_cell(i, j).GetNextState());
+    // Igualar el estado actual al estado siguiente
+    for (int i = 1; i <= row_size; i++) {
+      for (int j = 1; j <= column_size; j++) {
+        matrix_cell(i, j).SetActualState(matrix_cell(i, j).GetNextState());
+      }
     }
   }
 }
 
 void Grid::Write(void) {
-  system("clear");
+  // system("clear");
   std::cout << std::endl;
   std::cout << "|";
   for (int i = 0; i < column_size; i++) std::cout << "===";

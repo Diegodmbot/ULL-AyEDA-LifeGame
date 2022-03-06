@@ -47,11 +47,16 @@ int Cell::Neighbors(const Grid& map) {
 }
 
 void Cell::UpdateState(void) {
-  if (actual_state == kAlive) {
-    next_state = kDead;
-  } else if (actual_state == kDead) {
+  // Si la celula esta muerta y tiene 3 vecinos vivos pasa a estar viva
+  if (actual_state == kDead && neighbords_alive == 3) next_state = kAlive;
+  // Si la celula esta viva y tiene 3 o 2 vecinos vivos sigue viva
+  else if (actual_state == kAlive &&
+           (neighbords_alive == 3 || neighbords_alive == 2))
     next_state = kAlive;
-  }
+  // En cualquier otro caso la celula esta muerta
+  else
+    next_state = kDead;
+  std::cout << neighbords_alive << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Cell& cell) {

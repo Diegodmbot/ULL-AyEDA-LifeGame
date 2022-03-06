@@ -25,9 +25,9 @@ class Cell {
   Cell();
   ~Cell(void);
   // Getters - Setters
-  CellStates GetActualState(void);
-  CellStates GetNextState(void);
-  int GetNeighboursAlive(void);
+  CellStates GetActualState(void) const;
+  CellStates GetNextState(void) const;
+  int GetNeighboursAlive(void) const;
   void SetActualState(CellStates);
   void SetNextState(CellStates);
   void SetPositionRow(int);
@@ -38,7 +38,7 @@ class Cell {
    *
    * @return int
    */
-  int Neighbors(Grid&);
+  int Neighbors(const Grid&);
   /**
    * @brief Cambia el atributo next_state de una celula
    *

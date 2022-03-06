@@ -22,11 +22,11 @@ Cell::Cell() {
 
 Cell::~Cell() {}
 
-CellStates Cell::GetActualState(void) { return actual_state; }
+CellStates Cell::GetActualState(void) const { return actual_state; }
 
-CellStates Cell::GetNextState(void) { return next_state; }
+CellStates Cell::GetNextState(void) const { return next_state; }
 
-int Cell::GetNeighboursAlive(void) { return neighbords_alive; }
+int Cell::GetNeighboursAlive(void) const { return neighbords_alive; }
 
 void Cell::SetActualState(CellStates state) { actual_state = state; }
 
@@ -34,11 +34,16 @@ void Cell::SetNextState(CellStates state) { next_state = state; }
 void Cell::SetPositionRow(int row) { pos_row = row; }
 void Cell::SetPositionCol(int col) { pos_col = col; }
 
-int Cell::Neighbors(Grid& map) {
-  for (int i = 1; i <= map.GetRowSize(); i++) {
-    for (int j = 1; j <= map.GetColumnSize(); j++) {
+int Cell::Neighbors(const Grid& map) {
+  int counter = 0;
+  int i_ = pos_row + 1;
+  int j_ = pos_col + 1;
+  for (int i = pos_row - 1; i <= i_; i++) {
+    for (int j = pos_col - 1; j <= j_; j++) {
+      if (map.GetCell(i, j).GetActualState() == kAlive) counter++;
     }
   }
+  return counter;
 }
 
 void Cell::UpdateState(void) {

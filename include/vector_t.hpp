@@ -23,10 +23,10 @@ class vector_t {
   vector_t(const int = 0);
   ~vector_t();
   // Getters - Setters
-  Cell GetVal(const int) const;
+  Cell GetVal(int) const;
   int GetSize(void) const;
-  void SetVal(const int, const Cell);
-  Cell& operator[](const int);
+  void SetVal(int, Cell) const;
+  Cell& operator[](int) const;
   // Metodos
   void Resize(const int);
 

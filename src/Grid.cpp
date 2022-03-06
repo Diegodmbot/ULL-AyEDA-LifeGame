@@ -25,6 +25,10 @@ int Grid::GetRowSize() { return row_size; }
 
 int Grid::GetColumnSize() { return column_size; }
 
+const Cell& Grid::GetCell(int row, int col) const {
+  return matrix_cell(row, col);
+}
+
 void Grid::NextGeneration(void) {
   // Actualizar el estado siguiente
   Cell cell_aux;

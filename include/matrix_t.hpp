@@ -23,7 +23,7 @@ class matrix_t {
   int GetRows(void) const;
   int GetCols(void) const;
   // Metodos
-  Cell& operator()(const int, const int);
+  Cell& operator()(int, int) const;
   void Resize(const int, const int);
 
  private:

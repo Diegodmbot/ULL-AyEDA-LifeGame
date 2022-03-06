@@ -48,12 +48,12 @@ inline Cell vector_t::GetVal(const int i) const {
 
 inline int vector_t::GetSize() const { return sz_; }
 
-void vector_t::SetVal(const int i, const Cell d) {
+void vector_t::SetVal(int i, Cell d) const {
   assert(i >= 0 && i < GetSize());
   v_[i] = d;
 }
 
-Cell& vector_t::operator[](const int i) {
+Cell& vector_t::operator[](const int i) const {
   assert(i >= 0 && i < GetSize());
   return v_[i];
 }

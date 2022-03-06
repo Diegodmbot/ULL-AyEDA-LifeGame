@@ -47,7 +47,7 @@ void Grid::NextGeneration(void) {
 }
 
 void Grid::Write(void) {
-  // system("clear");
+  system("clear");
   std::cout << std::endl;
   std::cout << "|";
   for (int i = 1; i < column_size; i++) std::cout << "===";

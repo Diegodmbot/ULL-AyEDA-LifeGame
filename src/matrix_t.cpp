@@ -32,13 +32,13 @@ inline int matrix_t::GetRows() const { return rows_; }
 inline int matrix_t::GetCols() const { return cols_; }
 
 Cell& matrix_t::operator()(const int i, const int j) const {
-  assert(i > 0 && i <= GetRows());
-  assert(j > 0 && j <= GetCols());
+  assert(i >= 0 && i <= GetRows());
+  assert(j >= 0 && j <= GetCols());
   return v_[pos(i, j)];
 }
 
 inline int matrix_t::pos(const int i, const int j) const {
-  assert(i > 0 && i <= GetRows());
-  assert(j > 0 && j <= GetCols());
+  assert(i >= 0 && i <= GetRows());
+  assert(j >= 0 && j <= GetCols());
   return (i - 1) * GetCols() + (j - 1);
 }

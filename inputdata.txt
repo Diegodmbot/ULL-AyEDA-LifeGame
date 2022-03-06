@@ -1,8 +1,8 @@
 // Tamano del Mundo
 5 5
 // Numero de celulas
-5
+3
 // Coordenadas de las celulas
 3 3
-2 3
 4 3
+2 3

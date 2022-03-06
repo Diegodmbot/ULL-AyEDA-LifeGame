@@ -42,18 +42,21 @@ void vector_t::Resize(const int n) {
 }
 
 inline Cell vector_t::GetVal(const int i) const {
-  assert(i >= 0 && i < GetSize());
+  assert(i >= 0);
+  assert(i < GetSize());
   return v_[i];
 }
 
 inline int vector_t::GetSize() const { return sz_; }
 
 void vector_t::SetVal(int i, Cell d) const {
-  assert(i >= 0 && i < GetSize());
+  assert(i >= 0);
+  assert(i < GetSize());
   v_[i] = d;
 }
 
 Cell& vector_t::operator[](const int i) const {
-  assert(i >= 0 && i < GetSize());
+  assert(i >= 0);
+  assert(i < GetSize());
   return v_[i];
 }

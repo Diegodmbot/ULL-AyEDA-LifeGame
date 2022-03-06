@@ -34,8 +34,7 @@ void Grid::NextGeneration(void) {
   Cell cell_aux;
   for (int i = 1; i <= row_size; i++) {
     for (int j = 1; j <= column_size; j++) {
-      // matrix_cell(i, j).SetNeighbordsAlive(matrix_cell(i,
-      // j).Neighbors(*this));
+      matrix_cell(i, j).SetNeighbordsAlive(matrix_cell(i, j).Neighbors(*this));
       matrix_cell(i, j).UpdateState();
     }
     // Igualar el estado actual al estado siguiente
@@ -51,17 +50,17 @@ void Grid::Write(void) {
   // system("clear");
   std::cout << std::endl;
   std::cout << "|";
-  for (int i = 0; i < column_size; i++) std::cout << "===";
+  for (int i = 1; i < column_size; i++) std::cout << "===";
   std::cout << "|" << std::endl;
-  for (int i = 1; i <= row_size; i++) {
+  for (int i = 2; i <= row_size; i++) {
     std::cout << "|";
-    for (int j = 1; j <= column_size; j++) {
+    for (int j = 2; j <= column_size; j++) {
       std::cout << ' ' << matrix_cell(i, j) << ' ';
     }
     std::cout << "|" << std::endl;
   }
   std::cout << "|";
-  for (int i = 0; i < column_size; i++) std::cout << "===";
+  for (int i = 1; i < column_size; i++) std::cout << "===";
   std::cout << "|" << std::endl;
 }
 
@@ -84,9 +83,9 @@ void Grid::Read(char* arg) {
     int rows, cols;
     std::stringstream ss_world(file_lines[index++]);
     ss_world >> rows >> cols;
-    row_size = FormatSize(rows);
-    column_size = FormatSize(cols);
-    matrix_cell.Resize(row_size + 2, column_size + 2);
+    row_size = FormatSize(rows) + 1;
+    column_size = FormatSize(cols) + 1;
+    matrix_cell.Resize(row_size + 4, column_size + 4);
     // Numero de celulas
     int number_of_cells = std::stoi(file_lines[index++]);
     // Coordenadas de las celulas
@@ -97,7 +96,7 @@ void Grid::Read(char* arg) {
       int irow = std::stoi(srow);
       int icol = std::stoi(scol);
       if (BETWEEN(irow, 0, row_size) && BETWEEN(icol, 0, column_size))
-        matrix_cell(irow, icol).SetActualState(kAlive);
+        matrix_cell(irow + 1, icol + 1).SetActualState(kAlive);
     }
   }
   data_file.close();

@@ -15,7 +15,7 @@
 
 #include <iostream>
 
-typedef enum { kDead = 0, kAlive = 1, test = 3 } CellStates;
+typedef enum { kDead = 0, kAlive = 1 } CellStates;
 const int kNunmberOfNeighbors = 8;
 
 class Grid;

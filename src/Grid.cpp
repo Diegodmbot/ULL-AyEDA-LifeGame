@@ -95,7 +95,7 @@ void Grid::Read(char* arg) {
       ss_cells >> srow >> scol;
       int irow = std::stoi(srow);
       int icol = std::stoi(scol);
-      if (BETWEEN(irow, 0, row_size) && BETWEEN(icol, 0, column_size))
+      if (BETWEEN(irow, 1, row_size) && BETWEEN(icol, 1, column_size))
         matrix_cell(irow + 1, icol + 1).SetActualState(kAlive);
     }
   }

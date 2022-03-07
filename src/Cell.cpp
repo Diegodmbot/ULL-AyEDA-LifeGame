@@ -72,9 +72,6 @@ std::ostream& operator<<(std::ostream& os, const Cell& cell) {
     case 1:
       output = 'X';
       break;
-    case 3:
-      output = 'A';
-      break;
     default:
       break;
   }

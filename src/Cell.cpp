@@ -40,10 +40,10 @@ void Cell::SetPositionCol(int col) { pos_col = col; }
 
 int Cell::Neighbors(const Grid& map) {
   int counter = 0;
-  int i_ = pos_col + 1;
-  int j_ = pos_row + 1;
-  for (int i = pos_col - 1; i <= i_; i++) {
-    for (int j = pos_row - 1; j <= j_; j++) {
+  int i_ = pos_row + 1;
+  int j_ = pos_col + 1;
+  for (int i = pos_row - 1; i <= i_; i++) {
+    for (int j = pos_col - 1; j <= j_; j++) {
       if (map.GetCell(i, j).GetActualState() == kAlive) counter++;
     }
   }
